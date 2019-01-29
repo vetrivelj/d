@@ -53,8 +53,8 @@ module.exports = function(response, anaConfig, req, res, level, callback) {
                 });
             }
         }
-        console.log("Speech : " + speech)
         speech = speechText;
+        console.log("Speech : " + speech);
         SendResponse(speech, speechText, suggests, contextOut, req, res, function() {
             console.log("Finished!");
         });
