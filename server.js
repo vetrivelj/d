@@ -24,10 +24,6 @@ var contextOut = [];
 var anaConfig = {
 	"intent" : "JDE_creditlimit",
 	"webservice" : {
-		user: 'viki',
-        password: 'Oracle123',
-        server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
-        database: 'viki'
 	},
 	"folder" : "ana"
 };
