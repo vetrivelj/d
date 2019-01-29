@@ -22,12 +22,12 @@ var suggests = [];
 var contextOut = [];
 
 var anaConfig = {
-	"intent" : "dyna_test",
+	"intent" : "JDE_creditlimit",
 	"webservice" : {
-		"url" : "blah",
-		"database" : "viki",
-		"user" : "viki",
-		"password" : "pw"
+		user: 'viki',
+        password: 'Oracle123',
+        server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
+        database: 'viki'
 	},
 	"folder" : "awsd"
 };

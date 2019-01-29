@@ -4,7 +4,7 @@ module.exports = function( qString, anaConfig, req, res, callback ) {
     var sqlConfig = {
         user: anaConfig.webservice.user,
         password: anaConfig.webservice.password,
-        server: anaConfig.webservice.url,
+        server: anaConfig.webservice.server,
         database: anaConfig.webservice.database
     }
     console.log("SQL :" + JSON.stringify(sqlConfig));
