@@ -12,7 +12,6 @@ restService.use(bodyParser.urlencoded({
 restService.use(bodyParser.json());
 
 var Input,Output,Webservice; 
-var Output = require("./output");
 var SendResponse = require("./sendResponse");
 
 var qString = "";
