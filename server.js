@@ -43,7 +43,7 @@ restService.post('/inputmsg', function(req, res) {
             qString = resultIn;
             Webservice = require("./" + anaConfig.folder + "/webservice");
             Webservice( qString, anaConfig, req, res, function(resultWeb){
-                console,log("Result Web : " + resultWeb );
+                console.log("Result Web : " + resultWeb );
                 var response = resultWeb;
                 Output = require("./" + anaConfig.folder + "/output")
                 Output( response, anaConfig, req, res, 1, function(resultOut){
