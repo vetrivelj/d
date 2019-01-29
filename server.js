@@ -54,9 +54,6 @@ restService.post('/inputmsg', function(req, res) {
 		});
 	}
 	
-    SendResponse(speech, speechText, suggests, contextOut, req, res, function() {
-        console.log("Finished!");
-    });
 });
 
 
