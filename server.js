@@ -29,7 +29,7 @@ var anaConfig = {
         server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
         database: 'viki'
 	},
-	"folder" : "awsd"
+	"folder" : "ana"
 };
 
 restService.post('/inputmsg', function(req, res) {
