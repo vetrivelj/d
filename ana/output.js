@@ -1,6 +1,7 @@
 module.exports = function(response, anaConfig, req, res, level, callback) {
     var CustNum = req.body.result.parameters.CustNum;
     var CustName = req.body.result.parameters.CustName;
+    var jde_attrib = req.body.result.parameters.jde_attrib;
 
     var Webservice = require("./webservice");
     var SendResponse = require("../sendResponse");
@@ -41,7 +42,15 @@ module.exports = function(response, anaConfig, req, res, level, callback) {
         }
     } else {
         if (response.rowsAffected == 1) {
-            speechText = "Credit limit for " + response.recordset[0].CustName + "(" + response.recordset[0].CustNum + ") is " + response.recordset[0].credit;
+            if( jde_attrib == "credit")
+                speechText = "Credit limit for " + response.recordset[0].CustName + "(" + response.recordset[0].CustNum + ") is " + response.recordset[0].credit;
+            else{
+                if(jde_attrib == "exposure"){
+                    speechText = "Total exposure for " + response.recordset[0].CustName + "(" + response.recordset[0].CustNum + ") is " + response.recordset[0].exposure;
+                }else{
+                    speechText = "Unable to process your request please try again later."
+                }
+            }
         } else {
             speechText = "Please select one of the following:\n";
             speechText += "Customer ";

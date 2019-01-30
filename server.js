@@ -22,21 +22,23 @@ var speechText = "";
 var suggests = [];
 var contextOut = [];
 
-var anaConfig = {
-    "invoke" : ["input", "webservice", "output"],
-	"intent" : "JDE_creditlimit",
-	"webservice" : {
-		user: 'viki',
-        password: 'Oracle123',
-        server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
-        database: 'viki'
-	},
-	"folder" : "ana"
+var config = {
+    "anaConfig" : {
+        "invoke" : ["input", "webservice", "output"],
+        "intent" : "JDE_",
+        "webservice" : {
+            user: 'viki',
+            password: 'Oracle123',
+            server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
+            database: 'viki'
+           },
+	   "folder" : "ana"
+    }
 };
 
 restService.post('/inputmsg', function(req, res) {
 	
-	Invoke( 0, 1, anaConfig, req, res, function(){
+	Invoke( 0, 1, config.anaConfig, req, res, function(){
         console.log("Done");
     });
 });
