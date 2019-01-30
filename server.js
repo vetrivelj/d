@@ -15,6 +15,8 @@ var Input,Output,Webservice;
 var Invoke = require("./invoker");
 var SendResponse = require("./sendResponse");
 
+var intentName = "";
+
 var qString = "";
 
 var speech = "";
@@ -22,10 +24,20 @@ var speechText = "";
 var suggests = [];
 var contextOut = [];
 
-var config = {
-    "anaConfig" : {
+var anaConfig;
+var listConfig = [ {
         "invoke" : ["input", "webservice", "output"],
-        "intent" : "JDE_",
+        "intent" : ["JDE_creditlimit", :"JDE_creditlimit_name"],
+        "webservice" : {
+            user: 'viki',
+            password: 'Oracle123',
+            server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
+            database: 'viki'
+           },
+	   "folder" : "ana"
+    },{
+        "invoke" : ["input", "webservice", "output"],
+        "intent" : ["test"],
         "webservice" : {
             user: 'viki',
             password: 'Oracle123',
@@ -34,11 +46,17 @@ var config = {
            },
 	   "folder" : "ana"
     }
-};
+];
 
 restService.post('/inputmsg', function(req, res) {
-	
-	Invoke( 0, 1, config.anaConfig, req, res, function(){
+	intentName = req.body.result.metadata.intentName
+    for(var i =0; i < listConfig.length; i ++){
+        if( listConfig[i].intent.includes(intentName) ){
+            anaConfig = listConfig[i];
+            break;
+        }
+    }
+	Invoke( 0, 1, anaConfig, req, res, function(){
         console.log("Done");
     });
 });
