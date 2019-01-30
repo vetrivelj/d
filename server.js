@@ -36,7 +36,7 @@ var anaConfig = {
 
 restService.post('/inputmsg', function(req, res) {
 	
-	Invoke( 1, 1, anaConfig, req, res, function(){
+	Invoke( 0, 1, anaConfig, req, res, function(){
         console.log("Done");
     });
 });

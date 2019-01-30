@@ -16,7 +16,7 @@ module.exports = function( qString, anaConfig, req, res, callback ) {
                 console.log(err);
                 sql.close();
                 var speech = "Unable to process your request. Please try again later.";
-                resp.json({
+                res.json({
                     speech : speech,
 					displayText : speech
                 });
