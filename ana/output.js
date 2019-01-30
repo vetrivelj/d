@@ -19,7 +19,7 @@ module.exports = function(response, anaConfig, req, res, level, callback) {
         if (CustName != "" && CustName != null) {
             shortName = CustName.substr(0, (CustName.length) / level);
             console.log("Short : " + shortName + "\nLevel : " + level);
-            if (shortName.length > 2) {
+            if (shortName.length > 1) {
                 qString = "Select * from jde WHERE CustName  LIKE '" + shortName + "%' OR REPLACE(REPLACE(REPLACE(CustName, '.',''), ',', ''), '/', '') LIKE '" + shortName + "%'";
                 Webservice(qString, anaConfig, req, res, function(resultWeb1) {
                     Output(resultWeb1, anaConfig, req, res, level + 1, function(resultOut) {
