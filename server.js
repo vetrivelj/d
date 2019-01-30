@@ -23,7 +23,7 @@ var suggests = [];
 var contextOut = [];
 
 var anaConfig = {
-    "invoke" : ["input", "webservice", "output"]
+    "invoke" : ["input", "webservice", "output"],
 	"intent" : "JDE_creditlimit",
 	"webservice" : {
 		user: 'viki',
