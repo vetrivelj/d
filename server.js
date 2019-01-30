@@ -12,6 +12,7 @@ restService.use(bodyParser.urlencoded({
 restService.use(bodyParser.json());
 
 var Input,Output,Webservice; 
+var Invoke = require("./invoker");
 var SendResponse = require("./sendResponse");
 
 var qString = "";
@@ -22,34 +23,22 @@ var suggests = [];
 var contextOut = [];
 
 var anaConfig = {
+    "invoke" : ["input", "webservice", "output"]
 	"intent" : "JDE_creditlimit",
 	"webservice" : {
+		user: 'viki',
+        password: 'Oracle123',
+        server: 'vikisql.c1abev5luwmn.us-west-1.rds.amazonaws.com',
+        database: 'viki'
 	},
 	"folder" : "ana"
 };
 
 restService.post('/inputmsg', function(req, res) {
 	
-	var intentName = req.body.result.metadata.intentName;
-	
-	if( intentName = anaConfig.intent){
-		Input = require("./" + anaConfig.folder + "/input");
-		Input( anaConfig, req, res, function(resultIn){
-			console.log("Result In: " + resultIn );
-            qString = resultIn;
-            Webservice = require("./" + anaConfig.folder + "/webservice");
-            Webservice( qString, anaConfig, req, res, function(resultWeb){
-                console.log("Result Web : " + resultWeb );
-                var response = resultWeb;
-                Output = require("./" + anaConfig.folder + "/output")
-                Output( response, anaConfig, req, res, 1, function(resultOut){
-                    console.log("Result Out : + " + resultOut);
-                });
-            });
-            
-		});
-	}
-	
+	Invoke( 1, 1, anaConfig, req, res, function(){
+        console.log("Done");
+    });
 });
 
 
