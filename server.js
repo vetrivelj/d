@@ -27,7 +27,7 @@ var contextOut = [];
 var anaConfig;
 var listConfig = [ {
         "invoke" : ["input", "webservice", "output"],
-        "intent" : ["JDE_creditlimit", :"JDE_creditlimit_name"],
+        "intent" : ["JDE_creditlimit", "JDE_creditlimit_name"],
         "webservice" : {
             user: 'viki',
             password: 'Oracle123',
