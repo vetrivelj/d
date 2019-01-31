@@ -53,6 +53,7 @@ module.exports = function(response, anaConfig, req, res, level, callback) {
             }
         } else {
             speechText = "Please select one of the following:\n";
+			speech = speechText;
             speechText += "Customer ";
             suggests = [];
             for (var i = 0; i < response.recordset.length; i++) {
@@ -62,7 +63,6 @@ module.exports = function(response, anaConfig, req, res, level, callback) {
                 });
             }
         }
-        speech = speechText;
         console.log("Speech : " + speech);
         SendResponse(speech, speechText, suggests, contextOut, req, res, function() {
             console.log("Finished!");
